@@ -17,6 +17,7 @@ var ItemModel = Backbone.Model.extend({
 });
 
 var ItemsView = Backbone.View.extend({
+  el: $("tbody"), // not working
   events: {
     "click a": "removeItem"
   },
@@ -30,7 +31,6 @@ var ItemsView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.$el = $("tbody");
     this.listenTo(this.collection, "remove reset rerender", this.render);
   },
 
